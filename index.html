@@ -413,6 +413,7 @@
 
             const availabilityDiv = document.querySelector(".availability");
             const availabilityStatus = data.availability;
+            document.getElementById("availability").innerText = availabilityStatus;
             if (availabilityStatus === "Available") {
                 availabilityDiv.style.backgroundColor = "#57b74e";
                 document.querySelector(".availability-status").style.color = "white";
