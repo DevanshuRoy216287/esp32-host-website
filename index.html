@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor and Control</title>
+
+    <style>
+        body {
+            font-family: 
+                "Segoe UI Rounded", 
+                "SF Pro Rounded", 
+                "Arial Rounded MT Bold", 
+                "Trebuchet MS", 
+                Verdana, 
+                sans-serif;
+            background-color: #292d52;
+        }
+
+        .monitor {
+            position: absolute;
+            top: 16vh;
+            left: 5vw;
+            width: 50vw;
+            height: 80vh;
+            border-radius: 10vh;
+            background-color: #202442;
+        }
+
+        .availability {
+            position: absolute;
+            top: 5vh;
+            left: 5vw;
+            width: 28vw;
+            height: 11vh;
+            border-radius: 5vh;
+            background-color: #292d52;
+            box-shadow: 0 0 2vh black;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1vw;
+        }
+
+        .availability-text {
+            font-size: 3.3vh;
+            font-weight: bold;
+            top: 5vh;
+        }
+
+        .availability-status {
+            color: #b6b6b6;
+            font-size: 3.1vh;
+            font-weight: bold;
+            top: 5vh;
+        }
+
+        .charging-status {
+            position: absolute;
+            top: 22vh;
+            left: 3vw;
+            width: 25vw;
+            height: 11vh;
+            border-radius: 5vh;
+            background-color: #292d52;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1vw;
+        }
+
+        .status-text {
+            font-size: 3.3vh;
+            top: 5vh;
+        }
+
+        .status-status {
+            color: #b6b6b6;
+            font-size: 3.1vh;
+            top: 5vh;
+        }
+
+        .battery {
+            position: absolute;
+            top: 55vh;
+            left: 3vw;
+            width: 43vw;
+            height: 19vh;
+            border-radius: 8vh;
+            background-color: #292d52;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            gap: 1vw;
+        }
+
+        .battery-text {
+            font-size: 3.3vh;
+            top: 5.5vh;
+        }
+
+        .battery-status {
+            color: #b6b6b6;
+            font-size: 3.1vh;
+            top: 5.5vh;
+        }
+
+        .night-mode {
+            position: absolute;
+            top: 22vh;
+            left: 30vw;
+            width: 17vw;
+            height: 11vh;
+            border-radius: 4vh;
+            background-color: #292d52;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1vw;
+        }
+
+        .night-mode-text {
+            font-size: 3.3vh;
+            top: 5vh;
+        }
+
+        .night-mode-status {
+            color: #b6b6b6;
+            font-size: 3.1vh;
+            top: 5vh;
+        }
+
+        .current-time {
+            position: absolute;
+            top: 38vh;
+            left: 28vw;
+            width: 19vw;
+            height: 11vh;
+            border-radius: 4vh;
+            background-color: #292d52;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1vw;
+        }
+
+        .current-time-text {
+            font-size: 3.3vh;
+            top: 5vh;
+        }
+
+        .current-time-status {
+            color: #b6b6b6;
+            font-size: 3.1vh;
+            top: 5vh;
+        }
+
+        .relay-module {
+            position: absolute;
+            top: 38vh;
+            left: 3vw;
+            width: 23vw;
+            height: 11vh;
+            border-radius: 5vh;
+            background-color: #292d52;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1vw;
+        }
+
+        .relay-text {
+            font-size: 3.3vh;
+            top: 5vh;
+        }
+
+        .relay-status {
+            color: #b6b6b6;
+            font-size: 3.1vh;
+            top: 5vh;
+        }
+
+        .grey-bar {
+            position: absolute;
+            top: 10.5vh;
+            left: 2.5vw;
+            width: 38vw;
+            height: 3.5vh;
+            border-radius: 2vh;
+            background-color: #ededed;
+        }
+
+        .purple-bar {
+            position: absolute;
+            top: 0vh;
+            left: 0vh;
+            width: 50%;
+            height: 3.5vh;
+            border-radius: 2vh;
+            background-color: #7033FF;
+        }
+
+        .know-more-container {
+            position: absolute;
+            top: 5vh;
+            left: 30vw;
+            width: 11vw;
+            height: 8vh;
+            background-color: #21264b;
+            border-radius: 5vh;
+            cursor: pointer;
+            transition: ease-in-out 0.2s;
+        }
+
+        .know-more-container:hover {
+            background-color: #1f2345;
+            transform: scale(1.02);
+        }
+
+        .know-more {
+            position: absolute;
+            top: -0.8vh;
+            left: 1.9vw;
+            font-size: 3vh;
+            color: rgb(182, 182, 182);
+        }
+
+        .hhome {
+            position: absolute;
+            top: 6vh;
+            left: 44vw;
+            width: 6vh;
+            height: 6vh;
+            cursor: pointer;
+            transition: ease-in-out 0.2s;
+        }
+
+        .hhome:hover {
+            transform: scale(1.05);
+        }
+
+        .hmonitor {
+            position: absolute;
+            top: 6.6vh;
+            left: 50vw;
+            width: 4.5vh;
+            height: 4.5vh;
+            cursor: pointer;
+            transition: ease-in-out 0.2s;
+        }
+
+        .hmonitor:hover {
+            transform: scale(1.05);
+        }
+
+        .hcontrol {
+            position: absolute;
+            top: 6.3vh;
+            left: 55.5vw;
+            width: 4.7vh;
+            height: 4.7vh;
+            cursor: pointer;
+            transition: ease-in-out 0.2s;
+        }
+
+        .hcontrol:hover {
+            transform: scale(1.05);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <a href="https://docs.google.com/document/d/1CEAwBagcVMjw_6FL4JrynvhTgG1HXLec/edit?usp=sharing&ouid=100759510201249613594&rtpof=true&sd=true" target="_blank"><div class="know-more-container">
+            <p class="know-more">Know more</p>
+        </div></a>
+
+        <a href="home.html" target="_blank"><img src="icons8-home.png" alt="Home Icon" class="hhome"/></a>
+
+        <a href="index.html" target="_blank"><img src="icons8-monitor.png" alt="Monitor Icon" class="hmonitor"/></a>
+
+        <a href="index.html" target="_blank"><img src="icons8-setting.png" alt="Control Icon" class="hcontrol"/></a>
+    
+    <div class="monitor">
+
+        <div class="availability">
+            <p class="availability-text">Dock Availability:</p>
+            <p class="availability-status">Not Available</p>
+        </div>
+
+        <div class="charging-status">
+            <p class="status-text">Charging Status:</p>
+            <p class="status-status">Not Charging</p>
+        </div>
+
+        <div class="battery">
+            <p class="battery-text">Battery % :</p>
+            <p class="battery-status">78%</p>
+
+            <div class="grey-bar">
+                <div class="purple-bar"></div>
+            </div>
+        </div>
+
+        <div class="night-mode">
+            <p class="night-mode-text">Night Mode:</p>
+            <p class="night-mode-status">OFF</p>
+        </div>
+
+        <div class="relay-module">
+            <p class="relay-text">Relay Module Status:</p>
+            <p class="relay-status">OFF</p>
+        </div>
+
+        <div class="current-time">
+            <p class="current-time-text">Current Time:</p>
+            <p class="current-time-status">12:30</p>
+        </div>
+
+    </div>
+
+    <script>
+        const purpleBar = document.querySelector(".purple-bar");
+
+        setInterval(() => {
+
+            const batteryStatus = document.querySelector(".battery-status").innerText;
+            const batteryPercent = parseInt(batteryStatus.replace("%", ""));
+
+            const availabilityStatus = document.querySelector(".availability-status").innerText;
+
+            purpleBar.style.width = batteryPercent + "%";
+
+            if (availabilityStatus === "Available") {
+                document.querySelector(".availability").style.backgroundColor = "#57b74e";
+                document.querySelector(".availability-status").style.color = "white";
+            } 
+            
+            else if (availabilityStatus === "Not Available") {
+                document.querySelector(".availability").style.backgroundColor = "#F44F62";
+                document.querySelector(".availability-status").style.color = "white";
+            }
+
+            else {
+                document.querySelector(".availability").style.backgroundColor = "#292d52";
+            }
+
+        }, 500);
+
+
+    </script>
+
+</body>
+</html>
