@@ -398,33 +398,31 @@
     </div>
 
     <script>
-        const purpleBar = document.querySelector(".purple-bar");
+        async function updateData() {
+            const res = await fetch("/data");
+            const data = await res.json();
+            document.getElementById("battery").innerText = data.battery;
+            document.getElementById("relay").innerText = data.relay;
+            document.getElementById("night").innerText = data.night;
+            document.getElementById("time").innerText = data.time;
+            document.getElementById("distance1").innerText = data.distance1 + " cm";
+            document.getElementById("distance2").innerText = data.distance2 + " cm";
 
-        setInterval(() => {
+            document.querySelector(".purple-bar").style.width = data.battery + "%";
 
-            const batteryStatus = document.querySelector(".battery-status").innerText;
-            const batteryPercent = parseInt(batteryStatus.replace("%", ""));
-
-            const availabilityStatus = document.querySelector(".availability-status").innerText;
-
-            purpleBar.style.width = batteryPercent + "%";
-
+            const availabilityDiv = document.querySelector(".availability");
+            const availabilityStatus = data.availability;
             if (availabilityStatus === "Available") {
-                document.querySelector(".availability").style.backgroundColor = "#57b74e";
+                availabilityDiv.style.backgroundColor = "#57b74e";
                 document.querySelector(".availability-status").style.color = "white";
-            } 
-            
-            else if (availabilityStatus === "Not Available") {
-                document.querySelector(".availability").style.backgroundColor = "#F44F62";
+            } else {
+                availabilityDiv.style.backgroundColor = "#F44F62";
                 document.querySelector(".availability-status").style.color = "white";
             }
+        }
 
-            else {
-                document.querySelector(".availability").style.backgroundColor = "#292d52";
-            }
-
-        }, 500);
-
+        setInterval(updateData, 500);
+        updateData();
 
     </script>
 
