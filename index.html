@@ -401,6 +401,7 @@
         async function updateData() {
             const res = await fetch("/data");
             const data = await res.json();
+            document.getElementById("charging").innerText = data.charging;
             document.getElementById("battery").innerText = data.battery;
             document.getElementById("relay").innerText = data.relay;
             document.getElementById("night").innerText = data.night;
