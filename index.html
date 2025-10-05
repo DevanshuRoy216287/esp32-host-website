@@ -20,10 +20,10 @@
 
         .monitor {
             position: absolute;
-            top: 16vh;
-            left: 5vw;
+            top: 12vh;
+            left: 3vw;
             width: 50vw;
-            height: 80vh;
+            height: 85vh;
             border-radius: 10vh;
             background-color: #202442;
         }
@@ -33,7 +33,7 @@
             top: 5vh;
             left: 5vw;
             width: 28vw;
-            height: 11vh;
+            height: 9.5vh;
             border-radius: 5vh;
             background-color: #292d52;
             box-shadow: 0 0 2vh black;
@@ -60,10 +60,10 @@
 
         .charging-status {
             position: absolute;
-            top: 22vh;
+            top: 19.5vh;
             left: 3vw;
             width: 25vw;
-            height: 11vh;
+            height: 9.5vh;
             border-radius: 5vh;
             background-color: #292d52;
             text-align: center;
@@ -87,10 +87,10 @@
 
         .battery {
             position: absolute;
-            top: 55vh;
+            top: 48.5vh;
             left: 3vw;
             width: 43vw;
-            height: 19vh;
+            height: 16vh;
             border-radius: 8vh;
             background-color: #292d52;
             text-align: center;
@@ -102,21 +102,21 @@
 
         .battery-text {
             font-size: 3.3vh;
-            top: 5.5vh;
+            margin-top: 3vh;
         }
 
         .battery-status {
             color: #b6b6b6;
             font-size: 3.1vh;
-            top: 5.5vh;
+            margin-top: 3vh;
         }
 
         .night-mode {
             position: absolute;
-            top: 22vh;
+            top: 19.5vh;
             left: 30vw;
             width: 17vw;
-            height: 11vh;
+            height: 9.5vh;
             border-radius: 4vh;
             background-color: #292d52;
             text-align: center;
@@ -140,10 +140,10 @@
 
         .current-time {
             position: absolute;
-            top: 38vh;
+            top: 33.5vh;
             left: 28vw;
             width: 19vw;
-            height: 11vh;
+            height: 9.5vh;
             border-radius: 4vh;
             background-color: #292d52;
             text-align: center;
@@ -167,10 +167,10 @@
 
         .relay-module {
             position: absolute;
-            top: 38vh;
+            top: 33.5vh;
             left: 3vw;
             width: 23vw;
-            height: 11vh;
+            height: 9.5vh;
             border-radius: 5vh;
             background-color: #292d52;
             text-align: center;
@@ -194,10 +194,10 @@
 
         .grey-bar {
             position: absolute;
-            top: 10.5vh;
+            top: 9.2vh;
             left: 2.5vw;
             width: 38vw;
-            height: 3.5vh;
+            height: 3vh;
             border-radius: 2vh;
             background-color: #ededed;
         }
@@ -207,14 +207,14 @@
             top: 0vh;
             left: 0vh;
             width: 50%;
-            height: 3.5vh;
+            height: 3vh;
             border-radius: 2vh;
             background-color: #7033FF;
         }
 
         .know-more-container {
             position: absolute;
-            top: 5vh;
+            top: 2vh;
             left: 30vw;
             width: 11vw;
             height: 8vh;
@@ -239,7 +239,7 @@
 
         .hhome {
             position: absolute;
-            top: 6vh;
+            top: 3vh;
             left: 44vw;
             width: 6vh;
             height: 6vh;
@@ -253,7 +253,7 @@
 
         .hmonitor {
             position: absolute;
-            top: 6.6vh;
+            top: 3.5vh;
             left: 50vw;
             width: 4.5vh;
             height: 4.5vh;
@@ -267,7 +267,7 @@
 
         .hcontrol {
             position: absolute;
-            top: 6.3vh;
+            top: 3.1vh;
             left: 55.5vw;
             width: 4.7vh;
             height: 4.7vh;
@@ -277,6 +277,62 @@
 
         .hcontrol:hover {
             transform: scale(1.05);
+        }
+
+        .distance1 {
+            position: absolute;
+            top: 69.5vh;
+            left: 3vw;
+            width: 20.5vw;
+            height: 10vh;
+            border-radius: 5vh;
+            background-color: #542bb4;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1vw;
+        }
+
+        .distance1-text {
+            font-size: 3.3vh;
+            top: 5vh;
+            font-weight: bold;
+        }
+
+        .distance1-status {
+            color: white;
+            font-size: 3.1vh;
+            top: 5vh;
+        }
+
+        .distance2 {
+            position: absolute;
+            top: 69.5vh;
+            left: 25.5vw;
+            width: 20.5vw;
+            height: 10vh;
+            border-radius: 5vh;
+            background-color: #542bb4;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1vw;
+        }
+
+        .distance2-text {
+            font-size: 3.3vh;
+            top: 5vh;
+            font-weight: bold;
+        }
+
+        .distance2-status {
+            color: white;
+            font-size: 3.1vh;
+            top: 5vh;
         }
     </style>
 
@@ -298,17 +354,17 @@
 
         <div class="availability">
             <p class="availability-text">Dock Availability:</p>
-            <p class="availability-status">Not Available</p>
+            <p class="availability-status" id="availability">Not Available</p>
         </div>
 
         <div class="charging-status">
             <p class="status-text">Charging Status:</p>
-            <p class="status-status">Not Charging</p>
+            <p class="status-status" id="charging">Not Charging</p>
         </div>
 
         <div class="battery">
             <p class="battery-text">Battery % :</p>
-            <p class="battery-status">78%</p>
+            <p class="battery-status" id="battery">78%</p>
 
             <div class="grey-bar">
                 <div class="purple-bar"></div>
@@ -317,19 +373,28 @@
 
         <div class="night-mode">
             <p class="night-mode-text">Night Mode:</p>
-            <p class="night-mode-status">OFF</p>
+            <p class="night-mode-status" id="night">OFF</p>
         </div>
 
         <div class="relay-module">
             <p class="relay-text">Relay Module Status:</p>
-            <p class="relay-status">OFF</p>
+            <p class="relay-status" id="relay">OFF</p>
         </div>
 
         <div class="current-time">
             <p class="current-time-text">Current Time:</p>
-            <p class="current-time-status">12:30</p>
+            <p class="current-time-status" id="time">12:30</p>
         </div>
 
+        <div class="distance1">
+            <p class="distance1-text">distance 1:</p>
+            <p class="distance1-status" id="distance1">250 cm</p>
+        </div>
+
+        <div class="distance2">
+            <p class="distance2-text">distance 2:</p>
+            <p class="distance2-status" id="distance2">250 cm</p>
+        </div>
     </div>
 
     <script>
